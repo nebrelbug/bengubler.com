@@ -2,14 +2,17 @@ import { PostCard } from "@/components/post-card";
 import { ProjectCard } from "@/components/project-card";
 import { Badge } from "@/components/ui/badge";
 import { getPostColors } from "@/lib/colors";
-import { featuredProjects } from "@/lib/projects";
+import { getFeaturedProjects } from "@/lib/projects";
 import { allPosts } from "content-collections";
 import { ArrowRight, Github, Twitter } from "lucide-react";
 import Link from "next/link";
+import { T, useGT, Var } from "gt-next";
 
 type Post = (typeof allPosts)[0];
 
 export default function HomePage() {
+  const t = useGT();
+  
   // Get all posts sorted by date for consistent color assignment
   const sortedPosts = allPosts
     .filter((post: Post) => !post.archived)
@@ -24,6 +27,8 @@ export default function HomePage() {
       borderColor: colors.border,
     };
   });
+  
+  const featuredProjects = getFeaturedProjects(t);
 
   return (
     <div className="space-y-12 md:space-y-16">
@@ -31,13 +36,16 @@ export default function HomePage() {
       <section>
         <div className="space-y-8">
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Hello! Ahoj! Привет! مرحبا! 👋
-            </h1>
+              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                <Var>Hello! Ahoj! Привет! مرحبا! </Var>👋
+
+              </h1>
             <div className="flex items-center space-x-3">
-              <Badge className="text-xs px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 dark:bg-blue-950/30 dark:text-blue-400 dark:border-blue-800/30">
-                Currently interning @ Vercel
-              </Badge>
+              <T>
+                <Badge className="text-xs px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 dark:bg-blue-950/30 dark:text-blue-400 dark:border-blue-800/30">
+                  Currently interning @ Vercel
+                </Badge>
+              </T>
               <Link
                 href="https://github.com/bgub"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -45,7 +53,9 @@ export default function HomePage() {
                 rel="noopener noreferrer"
               >
                 <Github className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
+                <T>
+                  <span className="sr-only">GitHub</span>
+                </T>
               </Link>
               <Link
                 href="https://x.com/bgub_"
@@ -54,54 +64,62 @@ export default function HomePage() {
                 rel="noopener noreferrer"
               >
                 <Twitter className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
+                <T>
+                  <span className="sr-only">Twitter</span>
+                </T>
               </Link>
             </div>
           </div>
           <div className="space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm Ben (or on GitHub,{" "}
-              <Link
-                href="https://github.com/bgub"
-                className="text-foreground hover:underline font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @bgub
-              </Link>
-              ).
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I study AI and (human) languages. In my free time, I like to build
-              websites and open-source libraries. I'm currently studying ACME
-              (Applied and Computational Mathematics) and Arabic at BYU, while
-              interning at Vercel building the future of the web.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Feel free to take a look at my{" "}
-              <Link
-                href="/resume"
-                className="text-foreground hover:underline font-medium"
-              >
-                résumé
-              </Link>
-              , some of the{" "}
-              <Link
-                href="/projects"
-                className="text-foreground hover:underline font-medium"
-              >
-                projects
-              </Link>{" "}
-              I've worked on, or the{" "}
-              <Link
-                href="/language-learning"
-                className="text-foreground hover:underline font-medium"
-              >
-                language learning materials
-              </Link>{" "}
-              I've created. Otherwise you can check out some of my recent blog
-              posts below!
-            </p>
+            <T>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I'm Ben (or on GitHub,{" "}
+                <Link
+                  href="https://github.com/bgub"
+                  className="text-foreground hover:underline font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @bgub
+                </Link>
+                ).
+              </p>
+            </T>
+            <T>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I study AI and (human) languages. In my free time, I like to build
+                websites and open-source libraries. I'm currently studying ACME
+                (Applied and Computational Mathematics) and Arabic at BYU, while
+                interning at Vercel building the future of the web.
+              </p>
+            </T>
+            <T>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Feel free to take a look at my{" "}
+                <Link
+                  href="/resume"
+                  className="text-foreground hover:underline font-medium"
+                >
+                  résumé
+                </Link>
+                , some of the{" "}
+                <Link
+                  href="/projects"
+                  className="text-foreground hover:underline font-medium"
+                >
+                  projects
+                </Link>{" "}
+                I've worked on, or the{" "}
+                <Link
+                  href="/language-learning"
+                  className="text-foreground hover:underline font-medium"
+                >
+                  language learning materials
+                </Link>{" "}
+                I've created. Otherwise you can check out some of my recent blog
+                posts below!
+              </p>
+            </T>
           </div>
         </div>
       </section>
@@ -110,22 +128,28 @@ export default function HomePage() {
       <section>
         <div className="space-y-4 mb-6 md:mb-8">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Recent Posts
-            </h2>
+            <T>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Recent Posts
+              </h2>
+            </T>
             {allPosts.length > 3 && (
-              <Link
-                href="/posts"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
-              >
-                View all
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              <T>
+                <Link
+                  href="/posts"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+                >
+                  View all
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </T>
             )}
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Thoughts on web development, AI, and building things that matter.
-          </p>
+          <T>
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              Thoughts on web development, AI, and building things that matter.
+            </p>
+          </T>
         </div>
         <div className="@container">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -140,20 +164,26 @@ export default function HomePage() {
       <section>
         <div className="space-y-4 mb-6 md:mb-8">
           <div className="flex items-center justify-between">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Featured Projects
-            </h2>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
-            >
-              View all
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <T>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Featured Projects
+              </h2>
+            </T>
+            <T>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              >
+                View all
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </T>
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            A selection of recent work and experiments.
-          </p>
+          <T>
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              A selection of recent work and experiments.
+            </p>
+          </T>
         </div>
         <div className="@container">
           <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">

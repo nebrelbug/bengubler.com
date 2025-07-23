@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Share } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { T, useGT } from "gt-next";
 
 interface SocialProps {
   title: string;
@@ -62,6 +63,7 @@ export function Social({ title, className }: SocialProps) {
   const currentUrl = `https://bengubler.com${pathname}`;
   const encodedTitle = encodeURIComponent(title);
   const encodedUrl = encodeURIComponent(currentUrl);
+  const t = useGT();
 
   const shares = [
     {
@@ -99,9 +101,9 @@ export function Social({ title, className }: SocialProps) {
     <div className={cn("space-y-4", className)}>
       <div className="flex items-center gap-2">
         <Share className="h-4 w-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+        <T><h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
           Share this post
-        </h3>
+        </h3></T>
       </div>
       <div className="flex gap-3 justify-center">
         {shares.map((share) => (
@@ -111,8 +113,8 @@ export function Social({ title, className }: SocialProps) {
             target="_blank"
             rel="noopener noreferrer"
             className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-md ${share.bgColor} ${share.textColor}`}
-            title={`Share on ${share.name}`}
-            aria-label={`Share on ${share.name}`}
+            title={t('Share on {platform}', { platform: share.name })}
+            aria-label={t('Share on {platform}', { platform: share.name })}
           >
             <share.icon className="h-4 w-4" />
           </a>

@@ -3,19 +3,21 @@ import { MDXContent } from "@content-collections/mdx/react";
 import { allPosts } from "content-collections";
 import { Feed } from "feed";
 import { NextRequest, NextResponse } from "next/server";
+import { getGT } from "gt-next/server";
 
 const baseUrl = getBaseUrl();
 
 const createFeed = async (renderToString: Function) => {
+  const t = await getGT();
   const feed = new Feed({
-    title: "Ben Gubler",
+    title: t("Ben Gubler"),
     description:
-      "Ben Gubler's personal website. Thoughts on web development, AI, and building things that matter.",
+      t("Ben Gubler's personal website. Thoughts on web development, AI, and building things that matter."),
     id: baseUrl,
     link: baseUrl,
     language: "en",
     favicon: `${baseUrl}/icon.png`,
-    copyright: `Copyright ${new Date().getFullYear()} Ben Gubler`,
+    copyright: t("Copyright {year} Ben Gubler", { year: new Date().getFullYear() }),
     author: {
       name: "Ben Gubler",
       email: "hello@bengubler.com",
@@ -81,6 +83,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     });
   } catch (error) {
     console.error("Error generating RSS feed:", error);
-    return new NextResponse("Error generating RSS feed", { status: 500 });
+    const t = await getGT();
+    return new NextResponse(t("Error generating RSS feed"), { status: 500 });
   }
 }

@@ -9,6 +9,8 @@ import { Typography } from "@/components/ui/typography";
 import { getPostColors } from "@/lib/colors";
 import { MDXContent } from "@content-collections/mdx/react";
 import { allPosts } from "content-collections";
+import { T } from "gt-next";
+import { getGT } from "gt-next/server";
 import type { Metadata } from "next";
 import { Link } from "next-view-transitions";
 import { notFound } from "next/navigation";
@@ -32,8 +34,9 @@ export async function generateMetadata({
   const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {
+    const t = await getGT();
     return {
-      title: "Post Not Found",
+      title: t("Post Not Found"),
     };
   }
 
@@ -116,9 +119,9 @@ export default async function PostPage({
             href="/posts"
             className="hover:text-foreground transition-colors"
           >
-            Posts
+            <T>Posts</T>
           </Link>
-          <span className="mx-2">›</span>
+          <T><span className="mx-2">›</span></T>
           <span>{post.title}</span>
         </nav>
 
@@ -143,7 +146,7 @@ export default async function PostPage({
                 <>
                   <span>•</span>
                   <span>
-                    Updated{" "}
+                    <T>Updated</T>{" "}
                     {post.lastUpdated.toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "short",
@@ -159,7 +162,7 @@ export default async function PostPage({
             >
               {post.title}
               {post.archived && (
-                <span className="text-muted-foreground"> (archived)</span>
+                <T><span className="text-muted-foreground"> (archived)</span></T>
               )}
             </h1>
           </div>

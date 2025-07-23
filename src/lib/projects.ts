@@ -1,10 +1,10 @@
 import { getColorByIndex } from "./colors";
 
-const featuredProjectsData = [
+const getFeaturedProjectsData = (t: (content: string) => string) => [
   {
     id: "1",
     title: "Eta",
-    description: "A super-fast embedded JS template engine that supports Deno.",
+    description: t("A super-fast embedded JS template engine that supports Deno."),
     tech: ["JavaScript", "TypeScript", "Template Engine"],
     links: {
       demo: "https://eta.js.org",
@@ -15,8 +15,7 @@ const featuredProjectsData = [
   {
     id: "2",
     title: "Decline App",
-    description:
-      "A website for practicing Czech, Slovak, and Russian noun declensions.",
+    description: t("A website for practicing Czech, Slovak, and Russian noun declensions."),
     tech: ["Next.js", "React", "TypeScript"],
     links: {
       demo: "https://decline.vercel.app/",
@@ -27,8 +26,7 @@ const featuredProjectsData = [
   {
     id: "3",
     title: "GOM",
-    description:
-      "Pip package with CLI tool to monitor GPU usage across Docker containers. A minimalistic alternative to 'nvidia-smi'.",
+    description: t("Pip package with CLI tool to monitor GPU usage across Docker containers. A minimalistic alternative to 'nvidia-smi'."),
     tech: ["Python", "Docker", "CLI"],
     links: {
       demo: "https://pypi.org/project/gom/",
@@ -38,10 +36,13 @@ const featuredProjectsData = [
   },
 ];
 
-export const featuredProjects = featuredProjectsData.map((project, index) => {
-  const colors = getColorByIndex(index);
-  return {
-    ...project,
-    borderColor: colors.border,
-  };
-});
+export const getFeaturedProjects = (t: (content: string) => string) => {
+  const featuredProjectsData = getFeaturedProjectsData(t);
+  return featuredProjectsData.map((project, index) => {
+    const colors = getColorByIndex(index);
+    return {
+      ...project,
+      borderColor: colors.border,
+    };
+  });
+};

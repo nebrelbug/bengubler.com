@@ -1,6 +1,8 @@
 import { getColorByIndex } from "@/lib/colors";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T, useGT } from "gt-next";
+import { getGT } from "gt-next/server";
 
 type StackItem = {
   name: string;
@@ -13,161 +15,161 @@ type StackSection = {
   items: StackItem[];
 };
 
-export const metadata: Metadata = {
-  title: "My Stack - Ben Gubler",
-  description:
-    "Tools, technologies, and platforms that Ben Gubler uses for productivity, language learning, and development.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getGT();
+  return {
+    title: t("My Stack - Ben Gubler"),
+    description: t(
+      "Tools, technologies, and platforms that Ben Gubler uses for productivity, language learning, and development."
+    ),
+  };
+}
 
-const stack: StackSection[] = [
-  {
-    category: "Productivity",
-    items: [
-      {
-        name: "Todoist",
-        link: "https://todoist.com",
-        description:
-          "I couldn't function effectively without my trusty todo list!",
-      },
-      {
-        name: "Notion",
-        link: "https://notion.so",
-        description: "Second brain & knowledge base.",
-      },
-      {
-        name: "Google Calendar",
-        link: "https://calendar.google.com",
-        description: "Boring, but effective.",
-      },
-      {
-        name: "Monarch Money",
-        link: "https://monarchmoney.com",
-        description:
-          "I switched from Mint to Monarch and have been enjoying it so far.",
-      },
-    ],
-  },
-  {
-    category: "Language Learning",
-    items: [
-      {
-        name: "Anki",
-        link: "https://apps.ankiweb.net",
-        description:
-          "A flashcard app that uses spaced repetition. I use it to practice vocab.",
-      },
-      {
-        name: "Pimsleur",
-        link: "https://pimsleur.com",
-        description:
-          "My favorite way to start learning a language. It's based on listening and repetition, so it's great for improving your accent.",
-      },
-      {
-        name: "Glossika",
-        link: "https://glossika.com",
-        description:
-          "A great way to practice speaking. It's based on listening and repeating sentences and has lots of language pairings (e.g. Czech to Russian).",
-      },
-      {
-        name: "Mango",
-        link: "https://mangolanguages.com",
-        description:
-          "Solid alternative to Duolingo. If you have a public library membership, it may be free for you.",
-      },
-      {
-        name: "DeepL Translator",
-        link: "https://deepl.com",
-        description: "Like Google Translate, but more natural translations.",
-      },
-      {
-        name: "Glosbe Dictionary",
-        link: "https://glosbe.com",
-        description:
-          "Dictionary with tons of languages and example sentences sourced from the web.",
-      },
-    ],
-  },
-  {
-    category: "Tech — Languages",
-    items: [
-      {
-        name: "JavaScript / Node.js",
-        description: "Fun to program in, but I prefer TypeScript.",
-      },
-      {
-        name: "TypeScript",
-        description: "Makes writing JavaScript not scary!",
-      },
-      {
-        name: "Python",
-        description: "Fantastic for AI/ML work.",
-      },
-      {
-        name: "Rust",
-        description:
-          "For writing low-level code with a modern build system, great syntax, and no segfaults :)",
-      },
-    ],
-  },
-  {
-    category: "Tech — Libraries",
-    items: [
-      {
-        name: "React",
-        link: "https://react.dev",
-        description: "By far my favorite tool for building websites.",
-      },
-      {
-        name: "Next.js",
-        link: "https://nextjs.org",
-        description: "Solid ecosystem, great performance.",
-      },
-      {
-        name: "Tailwind",
-        link: "https://tailwindcss.com",
-        description:
-          "Literally so much better than writing CSS by hand in separate files.",
-      },
-      {
-        name: "shadcn/ui",
-        link: "https://ui.shadcn.com",
-        description:
-          "My go-to for building UI components. Love how they're accessible + customizable!",
-      },
-    ],
-  },
-  {
-    category: "Tech — Platforms",
-    items: [
-      {
-        name: "Vercel",
-        link: "https://vercel.com",
-        description: "Fantastic solution for hosting web apps.",
-      },
-      {
-        name: "GitHub Actions",
-        link: "https://github.com/features/actions",
-        description: "CI/CD built in to GitHub.",
-      },
-      {
-        name: "Umami Analytics",
-        link: "https://umami.is",
-        description: "Like Google Analytics. I self-host my own instance!",
-      },
-    ],
-  },
-];
 
 export default function MyStackPage() {
+  const t = useGT();
+  
+  // Translate the stack data structure
+  const translatedStack: StackSection[] = [
+    {
+      category: t("Productivity"),
+      items: [
+        {
+          name: t("Todoist"),
+          link: "https://todoist.com",
+          description: t("I couldn't function effectively without my trusty todo list!"),
+        },
+        {
+          name: t("Notion"),
+          link: "https://notion.so",
+          description: t("Second brain & knowledge base."),
+        },
+        {
+          name: t("Google Calendar"),
+          link: "https://calendar.google.com",
+          description: t("Boring, but effective."),
+        },
+        {
+          name: t("Monarch Money"),
+          link: "https://monarchmoney.com",
+          description: t("I switched from Mint to Monarch and have been enjoying it so far."),
+        },
+      ],
+    },
+    {
+      category: t("Language Learning"),
+      items: [
+        {
+          name: t("Anki"),
+          link: "https://apps.ankiweb.net",
+          description: t("A flashcard app that uses spaced repetition. I use it to practice vocab."),
+        },
+        {
+          name: t("Pimsleur"),
+          link: "https://pimsleur.com",
+          description: t("My favorite way to start learning a language. It's based on listening and repetition, so it's great for improving your accent."),
+        },
+        {
+          name: t("Glossika"),
+          link: "https://glossika.com",
+          description: t("A great way to practice speaking. It's based on listening and repeating sentences and has lots of language pairings (e.g. Czech to Russian)."),
+        },
+        {
+          name: t("Mango"),
+          link: "https://mangolanguages.com",
+          description: t("Solid alternative to Duolingo. If you have a public library membership, it may be free for you."),
+        },
+        {
+          name: t("DeepL Translator"),
+          link: "https://deepl.com",
+          description: t("Like Google Translate, but more natural translations."),
+        },
+        {
+          name: t("Glosbe Dictionary"),
+          link: "https://glosbe.com",
+          description: t("Dictionary with tons of languages and example sentences sourced from the web."),
+        },
+      ],
+    },
+    {
+      category: t("Tech — Languages"),
+      items: [
+        {
+          name: t("JavaScript / Node.js"),
+          description: t("Fun to program in, but I prefer TypeScript."),
+        },
+        {
+          name: t("TypeScript"),
+          description: t("Makes writing JavaScript not scary!"),
+        },
+        {
+          name: t("Python"),
+          description: t("Fantastic for AI/ML work."),
+        },
+        {
+          name: t("Rust"),
+          description: t("For writing low-level code with a modern build system, great syntax, and no segfaults :)"),
+        },
+      ],
+    },
+    {
+      category: t("Tech — Libraries"),
+      items: [
+        {
+          name: t("React"),
+          link: "https://react.dev",
+          description: t("By far my favorite tool for building websites."),
+        },
+        {
+          name: t("Next.js"),
+          link: "https://nextjs.org",
+          description: t("Solid ecosystem, great performance."),
+        },
+        {
+          name: t("Tailwind"),
+          link: "https://tailwindcss.com",
+          description: t("Literally so much better than writing CSS by hand in separate files."),
+        },
+        {
+          name: t("shadcn/ui"),
+          link: "https://ui.shadcn.com",
+          description: t("My go-to for building UI components. Love how they're accessible + customizable!"),
+        },
+      ],
+    },
+    {
+      category: t("Tech — Platforms"),
+      items: [
+        {
+          name: t("Vercel"),
+          link: "https://vercel.com",
+          description: t("Fantastic solution for hosting web apps."),
+        },
+        {
+          name: t("GitHub Actions"),
+          link: "https://github.com/features/actions",
+          description: t("CI/CD built in to GitHub."),
+        },
+        {
+          name: t("Umami Analytics"),
+          link: "https://umami.is",
+          description: t("Like Google Analytics. I self-host my own instance!"),
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="space-y-12">
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          My Stack
-        </h1>
+        <T>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            My Stack
+          </h1>
+        </T>
       </header>
 
-      {stack.map((section, index) => {
+      {translatedStack.map((section, index) => {
         const colors = getColorByIndex(index);
         return (
           <section key={section.category} className="space-y-6">

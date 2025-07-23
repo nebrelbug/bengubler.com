@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getGT } from "gt-next/server";
 
 // Image metadata
 export const alt = "Ben Gubler - Web Developer";
@@ -10,6 +11,8 @@ export const contentType = "image/png";
 
 // Image generation
 export default async function Image() {
+  const t = await getGT();
+  
   return new ImageResponse(
     (
       <div
@@ -62,7 +65,7 @@ export default async function Image() {
               marginBottom: "8px",
             }}
           >
-            bengubler.com
+            {t("bengubler.com")}
           </div>
           <div
             style={{
@@ -71,7 +74,7 @@ export default async function Image() {
               fontWeight: "500",
             }}
           >
-            Hello! Ahoj! Привет!
+            {t("Hello! Ahoj! Привет!")}
           </div>
         </div>
 
@@ -105,7 +108,7 @@ export default async function Image() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Ben Gubler
+            {t("Ben Gubler")}
           </h1>
 
           {/* Description */}
@@ -119,7 +122,7 @@ export default async function Image() {
               marginBottom: "40px",
             }}
           >
-            Web Developer, AI Student & Language Enthusiast
+            {t("Web Developer, AI Student & Language Enthusiast")}
           </p>
 
           {/* Decorative element */}
