@@ -10,31 +10,36 @@ import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import "./globals.css";
+import { getLocale, getGT } from "gt-next/server";
+import { GTProvider } from "gt-next";
+import type { InlineTranslationOptions } from "gt-next/types";
 
 const inter = Inter({ subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
-export const metadata: Metadata = {
+const getMetadata = (t: (content: string, options?: InlineTranslationOptions) => string): Metadata => ({
   title: {
     default: "Ben Gubler",
-    template: "%s - Ben Gubler",
+    template: "%s - Ben Gubler"
   },
-  description:
-    "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU. Thoughts on web development, AI, and building things that matter.",
+  description: t(
+    "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU. Thoughts on web development, AI, and building things that matter."
+  ),
   keywords: [
     "Ben Gubler",
-    "web developer",
+    t("web developer"),
     "Vercel",
     "Next.js",
     "React",
     "TypeScript",
     "AI",
-    "machine learning",
-    "BYU",
+    t("machine learning"),
+    "BYU"
   ],
+
   authors: [{ name: "Ben Gubler", url: "https://bengubler.com" }],
   creator: "Ben Gubler",
   publisher: "Ben Gubler",
@@ -44,16 +49,18 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://bengubler.com",
     title: "Ben Gubler",
-    description:
-      "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU.",
-    siteName: "Ben Gubler",
+    description: t(
+      "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU."
+    ),
+    siteName: "Ben Gubler"
   },
   twitter: {
     card: "summary_large_image",
     title: "Ben Gubler",
-    description:
-      "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU.",
-    creator: "@bgub_",
+    description: t(
+      "Ben Gubler's personal website. Web Development Intern at Vercel, studying AI and human languages at BYU."
+    ),
+    creator: "@bgub_"
   },
   robots: {
     index: true,
@@ -63,26 +70,31 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+      "max-snippet": -1
+    }
+  }
+});
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getGT();
+  return getMetadata(t);
+}
+
+export default async function RootLayout({
+  children
+
+
+}: {children: React.ReactNode;}) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className} ${geistMono.variable}`}>
+  <ViewTransitions>
+      <html suppressHydrationWarning lang={await getLocale()}>
+        <body className={`${inter.className} ${geistMono.variable}`}><GTProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange
-          >
+            disableTransitionOnChange>
+
             {/* Outermost wrapper for max-width and centering */}
             <div className="w-full max-w-screen-xl mx-auto bg-background">
               <div className="flex min-h-screen">
@@ -101,8 +113,8 @@ export default function RootLayout({
                             alt="Ben Gubler"
                             width={32}
                             height={32}
-                            className="object-cover"
-                          />
+                            className="object-cover" />
+
                         </div>
                         <span className="text-lg font-semibold">
                           Ben Gubler
@@ -121,7 +133,7 @@ export default function RootLayout({
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
-        </body>
+        </GTProvider></body>
       </html>
     </ViewTransitions>
   );

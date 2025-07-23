@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, LinkIcon as LinkIconLucide } from "lucide-react";
 import Image from "next/image";
+import { T, Var, useGT } from "gt-next";
 
 interface Project {
   id: string;
@@ -21,6 +22,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const t = useGT();
   const primaryLink = project.links.demo || project.links.github;
   const displayUrl = primaryLink
     ? primaryLink.replace(/^https?:\/\//, "").replace(/\/$/, "")
@@ -40,9 +42,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           className="absolute inset-0 z-10 rounded-lg"
-          aria-label={`Learn more about ${project.title}`}
+          aria-label={t("Learn more about {title}", { title: project.title })}
         >
-          <span className="sr-only">{project.title}</span>
+          <T>
+            <span className="sr-only"><Var>{project.title}</Var></span>
+          </T>
         </a>
       )}
 
@@ -51,7 +55,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted border-b">
           <Image
             src={`/project-images/${project.image}`}
-            alt={`${project.title} screenshot`}
+            alt={t("{title} screenshot", { title: project.title })}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -100,7 +104,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${project.title} GitHub repository`}
+                aria-label={t("{title} GitHub repository", { title: project.title })}
               >
                 <Github className="h-4 w-4" />
               </a>

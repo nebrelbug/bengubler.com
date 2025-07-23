@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { getPostColors } from "@/lib/post-colors";
 import { allPosts } from "content-collections";
 import { Link } from "next-view-transitions";
+import { useGT } from "gt-next";
 
 type Post = (typeof allPosts)[0] & {
   color?: string;
@@ -22,6 +23,8 @@ function getTransitionStyle(slug: string, prefix: string = "") {
 }
 
 export function PostCard({ post }: PostCardProps) {
+  const t = useGT();
+  
   // Format date to readable string
   const formattedDate = post.date.toLocaleDateString("en-US", {
     year: "numeric",
@@ -49,7 +52,7 @@ export function PostCard({ post }: PostCardProps) {
               {formattedDate}
             </time>
             <span style={getTransitionStyle(post.url, "reading-time-")}>
-              {(post as any).readingTime || "5 min read"}
+              {(post as any).readingTime || t("5 min read")}
             </span>
           </div>
           <h3

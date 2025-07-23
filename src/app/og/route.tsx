@@ -1,15 +1,17 @@
 import { ImageResponse } from "next/og";
+import { getGT } from "gt-next/server";
 
 export const runtime = "edge";
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
+    const t = await getGT();
 
-    const title = searchParams.get("title") || "Ben Gubler";
+    const title = searchParams.get("title") || t("Ben Gubler");
     const description =
       searchParams.get("description") ||
-      "Open-source developer, student in ML, and aspiring polyglot. Creator of Eta and Squirrelly.";
+      t("Open-source developer, student in ML, and aspiring polyglot. Creator of Eta and Squirrelly.");
 
     return new ImageResponse(
       (
@@ -73,7 +75,7 @@ export async function GET(request: Request) {
                 fontWeight: "500",
               }}
             >
-              Hello! Ahoj! Привет!
+              {t("Hello! Ahoj! Привет!")}
             </div>
           </div>
 
@@ -143,7 +145,8 @@ export async function GET(request: Request) {
     );
   } catch (e: any) {
     console.log(`OG API ERROR: ${e.message}`);
-    return new Response(`Failed to generate the image`, {
+    const t = await getGT();
+    return new Response(t(`Failed to generate the image`), {
       status: 500,
     });
   }

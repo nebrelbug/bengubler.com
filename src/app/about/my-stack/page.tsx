@@ -1,6 +1,7 @@
 import { getColorByIndex } from "@/lib/colors";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T, Var, useGT, Branch } from "gt-next";
 
 type StackItem = {
   name: string;
@@ -159,21 +160,26 @@ const stack: StackSection[] = [
 ];
 
 export default function MyStackPage() {
+  const t = useGT();
   return (
     <div className="space-y-12">
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          My Stack
-        </h1>
+        <T>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            My Stack
+          </h1>
+        </T>
       </header>
 
       {stack.map((section, index) => {
         const colors = getColorByIndex(index);
         return (
           <section key={section.category} className="space-y-6">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              {section.category}
-            </h2>
+            <T>
+              <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                <Var>{section.category}</Var>
+              </h2>
+            </T>
             <div
               className={`${colors.bg} ${colors.border} border rounded-lg p-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
             >
@@ -183,21 +189,27 @@ export default function MyStackPage() {
                     key={item.name}
                     className="text-lg text-muted-foreground leading-relaxed"
                   >
-                    {item.link ? (
-                      <Link
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium text-foreground hover:underline"
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <span className="font-medium text-foreground">
-                        {item.name}
-                      </span>
-                    )}{" "}
-                    — {item.description}
+                    <T>
+                      <Branch
+                        branch={Boolean(item.link).toString()}
+                        true={
+                          <Link
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-foreground hover:underline"
+                          >
+                            <Var>{item.name}</Var>
+                          </Link>
+                        }
+                        false={
+                          <span className="font-medium text-foreground">
+                            <Var>{item.name}</Var>
+                          </span>
+                        }
+                      />{" "}
+                      — <Var>{item.description}</Var>
+                    </T>
                   </li>
                 ))}
               </ul>

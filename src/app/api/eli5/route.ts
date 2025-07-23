@@ -1,13 +1,15 @@
 import { gateway } from "@vercel/ai-sdk-gateway";
 import { streamText } from "ai";
 import { NextRequest } from "next/server";
+import { getGT } from "gt-next/server";
 
 export async function POST(request: NextRequest) {
+  const t = await getGT();
   try {
     const { content, title } = await request.json();
 
     if (!content) {
-      return new Response("Content is required", { status: 400 });
+      return new Response(t("Content is required"), { status: 400 });
     }
 
     // Create the ELI5 system prompt
@@ -43,6 +45,6 @@ Blog post content: ${content}`;
     });
   } catch (error) {
     console.error("ELI5 API Error:", error);
-    return new Response("Internal Server Error", { status: 500 });
+    return new Response(t("Internal Server Error"), { status: 500 });
   }
 }

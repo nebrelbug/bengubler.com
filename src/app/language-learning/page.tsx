@@ -1,51 +1,70 @@
 import { getColorByIndex } from "@/lib/colors";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T, useGT } from "gt-next";
+import { getTranslations } from "gt-next/server";
+import { InlineTranslationOptions } from "gt-next/types";
 
-export const metadata: Metadata = {
-  title: "Language Learning - Ben Gubler",
-  description:
-    "Tools and resources for learning languages, including declension practice apps and more.",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  return {
+    title: t("Language Learning - Ben Gubler"),
+    description: t(
+      "Tools and resources for learning languages, including declension practice apps and more."
+    ),
+  };
+}
+
+const getLanguageTools = (t: (content: string, options?: InlineTranslationOptions) => string) => {
+  return [
+    {
+      id: "decline-app",
+      title: t("Decline App"),
+      description: t(
+        "A comprehensive website for practicing Czech, Slovak, and Russian noun declensions with interactive exercises."
+      ),
+      href: "https://decline.vercel.app/",
+      isExternal: true,
+    },
+    {
+      id: "czech-case-cards",
+      title: t("Czech Case Cards"),
+      description: t(
+        "Printable case cards for memorizing Czech noun declension patterns quickly and effectively."
+      ),
+      href: "/language-learning/czech-declensions",
+      isExternal: false,
+    },
+    {
+      id: "russian-case-cards",
+      title: t("Russian Case Cards"),
+      description: t(
+        "Printable case cards for memorizing Russian noun declension patterns quickly and effectively."
+      ),
+      href: "/language-learning/russian-declensions",
+      isExternal: false,
+    },
+  ];
 };
 
-const languageTools = [
-  {
-    id: "decline-app",
-    title: "Decline App",
-    description:
-      "A comprehensive website for practicing Czech, Slovak, and Russian noun declensions with interactive exercises.",
-    href: "https://decline.vercel.app/",
-    isExternal: true,
-  },
-  {
-    id: "czech-case-cards",
-    title: "Czech Case Cards",
-    description:
-      "Printable case cards for memorizing Czech noun declension patterns quickly and effectively.",
-    href: "/language-learning/czech-declensions",
-    isExternal: false,
-  },
-  {
-    id: "russian-case-cards",
-    title: "Russian Case Cards",
-    description:
-      "Printable case cards for memorizing Russian noun declension patterns quickly and effectively.",
-    href: "/language-learning/russian-declensions",
-    isExternal: false,
-  },
-];
-
 export default function LanguageLearningPage() {
+  const t = useGT();
+  const languageTools = getLanguageTools(t);
+  
   return (
     <div className="space-y-12">
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          Language Learning
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-          Tools and resources I've built to help with language learning,
-          particularly focused on Slavic languages.
-        </p>
+        <T>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            Language Learning
+          </h1>
+        </T>
+        <T>
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            Tools and resources I've built to help with language learning,
+            particularly focused on Slavic languages.
+          </p>
+        </T>
       </header>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

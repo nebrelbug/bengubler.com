@@ -1,5 +1,7 @@
 import { ProjectCard } from "@/components/project-card";
 import type { Metadata } from "next";
+import { T } from "gt-next";
+import { useGT } from "gt-next";
 
 export const metadata: Metadata = {
   title: "Projects - Ben Gubler",
@@ -7,9 +9,9 @@ export const metadata: Metadata = {
     "A collection of Ben Gubler's projects, from featured work to experimental builds.",
 };
 
-const projectsData = [
+const getProjectsData = (t: (content: string) => string) => [
   {
-    category: "Featured",
+    category: t("Featured"),
     items: [
       {
         id: "1",
@@ -50,7 +52,7 @@ const projectsData = [
     ],
   },
   {
-    category: "Other",
+    category: t("Other"),
     items: [
       {
         id: "4",
@@ -78,7 +80,7 @@ const projectsData = [
     ],
   },
   {
-    category: "Old",
+    category: t("Old"),
     items: [
       {
         id: "6",
@@ -126,25 +128,34 @@ const borderColors = [
   "border-orange-500/30 hover:border-orange-500/60 dark:border-orange-500/20 dark:hover:border-orange-500/40",
 ];
 
-const projects = projectsData.map((section) => ({
+const getProjects = (t: (content: string) => string) => {
+  const projectsData = getProjectsData(t);
+  return projectsData.map((section) => ({
   ...section,
   items: section.items.map((project, index) => ({
     ...project,
     borderColor: borderColors[index % borderColors.length],
   })),
-}));
+  }));
+};
 
 export default function ProjectsPage() {
+  const t = useGT();
+  const projects = getProjects(t);
   return (
     <div className="space-y-12">
       <header className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          Projects
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-          A collection of things I've built over the years, from open-source
-          libraries to web applications and browser extensions.
-        </p>
+        <T>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            Projects
+          </h1>
+        </T>
+        <T>
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            A collection of things I've built over the years, from open-source
+            libraries to web applications and browser extensions.
+          </p>
+        </T>
       </header>
 
       {projects.map((section) => (
