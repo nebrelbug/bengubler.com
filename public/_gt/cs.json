@@ -22,10 +22,6 @@
   "aede90d333b43664": "Super rychlý vestavěný JS template engine, který podporuje Deno.",
   "dddcf1306a447219": "Webová stránka pro procvičování deklinací českých, slovenských a ruských podstatných jmen.",
   "064898550ebaf40b": "Pip balíček s CLI nástrojem pro monitorování využití GPU napříč Docker kontejnery. Minimalistická alternativa k 'nvidia-smi'.",
-  "bad9b1c9be9e960a": {
-    "i": 1,
-    "c": "Ahoj! Hello! Привет! مرحبا! 👋"
-  },
   "74bc97362b457d52": {
     "i": 1,
     "c": "Momentálně stážista @ Vercel"
@@ -382,8 +378,20 @@
     "c": "Starší příspěvky, které mohou být zastaralé, ale stále mají určitou hodnotu."
   },
   "a9b1bb5ea856e25c": "Doporučené",
+  "b8baaea54c6c1704": "Eta",
+  "37882905c4941c4c": "GOM",
   "78344b60f407928e": "Ostatní",
+  "6aa37389c540a0b2": "npm-to-yarn",
+  "9cb6c83cde1c3052": "Npm balíček pro převod CLI příkazů mezi npm, Yarn a pnpm.",
+  "a34bed55aa23f894": "Squirrelly",
+  "1b8e0031a36d31c1": "Lehký JavaScript template engine s podporou helperů, partials, filtrů atd. Aktivně ho nevyvíjím, ale tohle je projekt, který mi pomohl dostat se do open source.",
   "800f2f5a7e516ff0": "Staré",
+  "cc77c2b66c79a626": "Splashpad",
+  "7224ad670aa82471": "Rozšíření pro Chrome, které změní vaši stránku nové karty na přizpůsobitelný dashboard.",
+  "4ea7e037ee1dab24": "Esperaboard",
+  "239e1d076b1e9abe": "Rozšíření pro Chrome, které při psaní transformuje znaky napsané v esperantském 'x-systému' na esperantské znaky.",
+  "116ab3333ed53b2d": "Piškvorky",
+  "7e2e50e347ad3014": "AI bot pro piškvorky postavený s TensorFlow.js. Vytvořil jsem ho jako teenager, když jsem se teprve začínal učit o ML, takže kód rozhodně není nejlepší. Ale byla to skvělá zkušenost s učením.",
   "4a73344dd83b8f0e": {
     "i": 1,
     "c": "Projekty"
@@ -538,17 +546,5 @@
     "i": 1,
     "c": " (archivováno)"
   },
-  "77d68abb75acf8cd": "Příspěvek nenalezen",
-  "37882905c4941c4c": "GOM",
-  "b8baaea54c6c1704": "Eta",
-  "cc77c2b66c79a626": "Splashpad",
-  "4ea7e037ee1dab24": "Esperaboard",
-  "6aa37389c540a0b2": "npm-to-yarn",
-  "116ab3333ed53b2d": "Piškvorky",
-  "a34bed55aa23f894": "Squirrelly",
-  "9cb6c83cde1c3052": "Npm balíček pro převod CLI příkazů mezi npm, Yarn a pnpm.",
-  "1b8e0031a36d31c1": "Lehký JavaScript template engine s podporou helperů, partials, filtrů atd. Aktivně ho nevyvíjím, ale tohle je projekt, který mi pomohl dostat se do open source.",
-  "7224ad670aa82471": "Rozšíření pro Chrome, které změní vaši stránku nové karty na přizpůsobitelný dashboard.",
-  "7e2e50e347ad3014": "AI bot pro piškvorky postavený s TensorFlow.js. Vytvořil jsem ho jako teenager, když jsem se teprve začínal učit o ML, takže kód rozhodně není nejlepší. Ale byla to skvělá zkušenost s učením.",
-  "239e1d076b1e9abe": "Rozšíření pro Chrome, které při psaní transformuje znaky napsané v esperantském 'x-systému' na esperantské znaky."
+  "77d68abb75acf8cd": "Příspěvek nenalezen"
 }

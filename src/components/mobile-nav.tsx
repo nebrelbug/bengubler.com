@@ -13,7 +13,7 @@ import {
   User,
   X,
 } from "lucide-react";
-import { LocaleSelector, T, useGT, Branch } from "gt-next";
+import { LocaleSelector, T, useGT, Branch } from "gt-next/client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";

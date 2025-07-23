@@ -22,10 +22,6 @@
   "aede90d333b43664": "Super rýchly vstavaný JS template engine, ktorý podporuje Deno.",
   "dddcf1306a447219": "Webová stránka na precvičovanie skloňovania podstatných mien v češtine, slovenčine a ruštine.",
   "064898550ebaf40b": "Pip balíček s CLI nástrojom na monitorovanie využitia GPU naprieč Docker kontajnermi. Minimalistická alternatíva k 'nvidia-smi'.",
-  "bad9b1c9be9e960a": {
-    "i": 1,
-    "c": "Ahoj! Hello! Привет! مرحبا! 👋"
-  },
   "74bc97362b457d52": {
     "i": 1,
     "c": "Momentálne stážujem vo Vercel"
@@ -382,8 +378,20 @@
     "c": "Staršie príspevky, ktoré môžu byť zastarané, ale stále majú určitú hodnotu."
   },
   "a9b1bb5ea856e25c": "Odporúčané",
+  "b8baaea54c6c1704": "Eta",
+  "37882905c4941c4c": "GOM",
   "78344b60f407928e": "Ostatné",
+  "6aa37389c540a0b2": "npm-to-yarn",
+  "9cb6c83cde1c3052": "Npm balíček na konverziu CLI príkazov medzi npm, Yarn a pnpm.",
+  "a34bed55aa23f894": "Squirrelly",
+  "1b8e0031a36d31c1": "Ľahký JavaScript template engine s podporou pre pomocníkov, parciálne šablóny, filtre, atď. Aktívne ho nevyvíjam, ale tento projekt mi pomohol dostať sa do open source.",
   "800f2f5a7e516ff0": "Staré",
+  "cc77c2b66c79a626": "Splashpad",
+  "7224ad670aa82471": "Chrome rozšírenie, ktoré zmení vašu stránku nového tabu na prispôsobiteľný dashboard.",
+  "4ea7e037ee1dab24": "Esperaboard",
+  "239e1d076b1e9abe": "Chrome rozšírenie na transformáciu znakov napísaných v esperantskom 'x-systéme' na esperantské znaky počas písania.",
+  "116ab3333ed53b2d": "Tic-Tac-Too",
+  "7e2e50e347ad3014": "AI tic-tac-toe bot vytvorený pomocou TensorFlow.js. Vytvoril som ho ako tínedžer, keď som sa len začínal učiť o ML, takže kód rozhodne nie je najlepší. Ale bola to skvelá učebná skúsenosť.",
   "4a73344dd83b8f0e": {
     "i": 1,
     "c": "Projekty"
@@ -538,17 +546,5 @@
     "i": 1,
     "c": " (archivované)"
   },
-  "77d68abb75acf8cd": "Príspevok sa nenašiel",
-  "a34bed55aa23f894": "Squirrelly",
-  "b8baaea54c6c1704": "Eta",
-  "116ab3333ed53b2d": "Tic-Tac-Too",
-  "37882905c4941c4c": "GOM",
-  "9cb6c83cde1c3052": "Npm balíček na konverziu CLI príkazov medzi npm, Yarn a pnpm.",
-  "cc77c2b66c79a626": "Splashpad",
-  "7224ad670aa82471": "Chrome rozšírenie, ktoré zmení vašu stránku nového tabu na prispôsobiteľný dashboard.",
-  "239e1d076b1e9abe": "Chrome rozšírenie na transformáciu znakov napísaných v esperantskom 'x-systéme' na esperantské znaky počas písania.",
-  "4ea7e037ee1dab24": "Esperaboard",
-  "1b8e0031a36d31c1": "Ľahký JavaScript template engine s podporou pre pomocníkov, parciálne šablóny, filtre, atď. Aktívne ho nevyvíjam, ale tento projekt mi pomohol dostať sa do open source.",
-  "6aa37389c540a0b2": "npm-to-yarn",
-  "7e2e50e347ad3014": "AI tic-tac-toe bot vytvorený pomocou TensorFlow.js. Vytvoril som ho ako tínedžer, keď som sa len začínal učiť o ML, takže kód rozhodne nie je najlepší. Ale bola to skvelá učebná skúsenosť."
+  "77d68abb75acf8cd": "Príspevok sa nenašiel"
 }
