@@ -15,9 +15,8 @@ const getProjectsData = (t: (content: string) => string) => [
     items: [
       {
         id: "1",
-        title: "Eta",
-        description:
-          "A super-fast embedded JS template engine that supports Deno.",
+        title: t("Eta"),
+        description: t("A super-fast embedded JS template engine that supports Deno."),
         tech: ["JavaScript", "TypeScript", "Template Engine"],
         links: {
           demo: "https://eta.js.org",
@@ -27,9 +26,8 @@ const getProjectsData = (t: (content: string) => string) => [
       },
       {
         id: "2",
-        title: "Decline App",
-        description:
-          "A website for practicing Czech, Slovak, and Russian noun declensions.",
+        title: t("Decline App"),
+        description: t("A website for practicing Czech, Slovak, and Russian noun declensions."),
         tech: ["Next.js", "React", "TypeScript"],
         links: {
           demo: "https://decline.vercel.app/",
@@ -39,9 +37,8 @@ const getProjectsData = (t: (content: string) => string) => [
       },
       {
         id: "3",
-        title: "GOM",
-        description:
-          "Pip package with CLI tool to monitor GPU usage across Docker containers. A minimalistic alternative to 'nvidia-smi'.",
+        title: t("GOM"),
+        description: t("Pip package with CLI tool to monitor GPU usage across Docker containers. A minimalistic alternative to 'nvidia-smi'."),
         tech: ["Python", "Docker", "CLI"],
         links: {
           demo: "https://pypi.org/project/gom/",
@@ -56,9 +53,8 @@ const getProjectsData = (t: (content: string) => string) => [
     items: [
       {
         id: "4",
-        title: "npm-to-yarn",
-        description:
-          "An npm package for converting CLI commands between npm, Yarn, and pnpm.",
+        title: t("npm-to-yarn"),
+        description: t("An npm package for converting CLI commands between npm, Yarn, and pnpm."),
         tech: ["JavaScript", "Node.js", "CLI"],
         links: {
           github: "https://github.com/bgub/npm-to-yarn",
@@ -67,9 +63,8 @@ const getProjectsData = (t: (content: string) => string) => [
       },
       {
         id: "5",
-        title: "Squirrelly",
-        description:
-          "A lightweight JavaScript template engine with support for helpers, partials, filters, etc. I'm not actively developing it, but this is the project that helped me get into open source.",
+        title: t("Squirrelly"),
+        description: t("A lightweight JavaScript template engine with support for helpers, partials, filters, etc. I'm not actively developing it, but this is the project that helped me get into open source."),
         tech: ["JavaScript", "Template Engine"],
         links: {
           demo: "https://squirrelly.js.org",
@@ -84,9 +79,8 @@ const getProjectsData = (t: (content: string) => string) => [
     items: [
       {
         id: "6",
-        title: "Splashpad",
-        description:
-          "A Chrome extension that turns your new tab page into a customizable dashboard.",
+        title: t("Splashpad"),
+        description: t("A Chrome extension that turns your new tab page into a customizable dashboard."),
         tech: ["JavaScript", "Chrome Extension"],
         links: {
           demo: "https://chrome.google.com/webstore/detail/splashpad/fainejfmhojphdbbfmpomeknplpdnndb",
@@ -95,9 +89,8 @@ const getProjectsData = (t: (content: string) => string) => [
       },
       {
         id: "7",
-        title: "Esperaboard",
-        description:
-          "A Chrome extension to transform characters written in the Esperanto 'x-system' into Esperanto characters while typing.",
+        title: t("Esperaboard"),
+        description: t("A Chrome extension to transform characters written in the Esperanto 'x-system' into Esperanto characters while typing."),
         tech: ["JavaScript", "Chrome Extension"],
         links: {
           demo: "https://chrome.google.com/webstore/detail/esperaboard-esperanto-x-s/nkgbomaneihlabdhjihdhpdlehahahoc",
@@ -106,9 +99,8 @@ const getProjectsData = (t: (content: string) => string) => [
       },
       {
         id: "8",
-        title: "Tic-Tac-Too",
-        description:
-          "AI tic-tac-toe bot built with TensorFlow.js. I built this as a teenager, while just starting to learn about ML, so it's definitely not the best code. But it was a great learning experience.",
+        title: t("Tic-Tac-Too"),
+        description: t("AI tic-tac-toe bot built with TensorFlow.js. I built this as a teenager, while just starting to learn about ML, so it's definitely not the best code. But it was a great learning experience."),
         tech: ["JavaScript", "TensorFlow.js", "AI"],
         links: {
           demo: "https://tictactoe.bengubler.com/",

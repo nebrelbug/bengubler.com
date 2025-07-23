@@ -6,7 +6,7 @@ import { getFeaturedProjects } from "@/lib/projects";
 import { allPosts } from "content-collections";
 import { ArrowRight, Github, Twitter } from "lucide-react";
 import Link from "next/link";
-import { T, useGT } from "gt-next";
+import { T, useGT, Var } from "gt-next";
 
 type Post = (typeof allPosts)[0];
 
@@ -36,11 +36,10 @@ export default function HomePage() {
       <section>
         <div className="space-y-8">
           <div className="space-y-4">
-            <T>
               <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                Hello! Ahoj! Привет! مرحبا! 👋
+                <Var>Hello! Ahoj! Привет! مرحبا! </Var>👋
+
               </h1>
-            </T>
             <div className="flex items-center space-x-3">
               <T>
                 <Badge className="text-xs px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 dark:bg-blue-950/30 dark:text-blue-400 dark:border-blue-800/30">

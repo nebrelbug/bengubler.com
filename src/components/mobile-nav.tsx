@@ -19,7 +19,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { InlineTranslationOptions } from "gt-next/types";
 
-const getNavigation = (t: (content: string, options?: InlineTranslationOptions) => string) => [
+const getNavigation = (
+  t: (content: string, options?: InlineTranslationOptions) => string
+) => [
   { name: t("Home"), href: "/", icon: Home },
   { name: t("About"), href: "/about", icon: User },
   {
@@ -92,7 +94,15 @@ export function MobileNav() {
         aria-controls="mobile-menu-popover"
       >
         {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        <T><span className="sr-only"><Branch branch={isOpen.toString()} true="Close menu" false="Open menu" /></span></T>
+        <T>
+          <span className="sr-only">
+            <Branch
+              branch={isOpen.toString()}
+              true="Close menu"
+              false="Open menu"
+            />
+          </span>
+        </T>
       </Button>
 
       {/* Popover Menu */}
