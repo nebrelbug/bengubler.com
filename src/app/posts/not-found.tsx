@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { T, useGT } from "gt-next";
-import { getTranslations } from "gt-next/server";
+import { getGT } from "gt-next/server";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations();
+  const t = await getGT();
   return {
     title: t("Post Not Found - Ben Gubler"),
     description: t("The post you're looking for doesn't exist."),

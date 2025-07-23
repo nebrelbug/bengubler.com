@@ -180,8 +180,8 @@
       "d": {
         "t": "b",
         "b": {
-          "false": "Otevřít menu",
-          "true": "Zavřít menu"
+          "true": "Zavřít menu",
+          "false": "Otevřít menu"
         }
       }
     }
@@ -246,6 +246,8 @@
   "fdd81c55ee7946f3": "Světlý",
   "cd8ccd4b937873e1": "Tmavý",
   "5ae7fd1fc9c3f5a9": "Systém",
+  "5d1a87ebd0ba9c9e": "O Benu Gublerovi",
+  "d8b46c0127d88a10": "Dozvědět se více o Benu Gublerovi, jeho studiu AI, jazyků a jeho práci jako webový vývojář.",
   "8e6afde0f536eee2": {
     "i": 1,
     "c": "O mně"
@@ -293,6 +295,8 @@
   "6e8a4f1758b76948": "Profesní síť a diskuze související s kariérou",
   "28a45948473da7f8": "GitHub",
   "4088fbaddc00d228": "Podívejte se na moje open source projekty a příspěvky",
+  "b710e73c5611e3f4": "Kontakt - Ben Gubler",
+  "233fe71d46008091": "Ozvěte se mi ohledně spolupráce, dotazů, nebo jen tak na pozdrav.",
   "0704279d82328bbd": {
     "i": 1,
     "c": "Kontakt"
@@ -307,6 +311,8 @@
   "0ee81746110ea465": "Tisknutelné kartičky s pády pro rychlé a efektivní zapamatování vzorů českých deklinací podstatných jmen.",
   "2e881bd80673c0fa": "Ruské pádové karty",
   "97c326fd40fc8abd": "Tisknutelné kartičky s pády pro rychlé a efektivní zapamatování vzorů ruských deklinací podstatných jmen.",
+  "1f1b4086cadac9b6": "Učení jazyků - Ben Gubler",
+  "4373e32d3674bcd0": "Nástroje a zdroje pro učení jazyků, včetně aplikací pro procvičování deklinací a dalších.",
   "e6d86a912aea1aa4": {
     "i": 1,
     "c": "Učení jazyků"
@@ -317,6 +323,8 @@
   },
   "f054995438d006aa": "Open-source vývojář, student ML a začínající polyglot. Tvůrce Eta a Squirrelly.",
   "d9cb196550026295": "Nepodařilo se vygenerovat obrázek",
+  "95f506e43b9b3265": "Příspěvek nenalezen - Ben Gubler",
+  "6c9b9dc3b6bc4b97": "Příspěvek, který hledáte, neexistuje.",
   "40947665b1503ba3": {
     "i": 1,
     "c": "404"
@@ -546,5 +554,11 @@
     "i": 1,
     "c": " (archivováno)"
   },
-  "77d68abb75acf8cd": "Příspěvek nenalezen"
+  "77d68abb75acf8cd": "Příspěvek nenalezen",
+  "2ce262d5ab363438": "Příspěvky - Ben Gubler",
+  "c7a2323b7e48530a": "Můj Stack - Ben Gubler",
+  "70dd984db771852a": "Projekty - Ben Gubler",
+  "feb481b144af444a": "Myšlenky o webovém vývoji, AI a budování věcí, které mají smysl.",
+  "2da071f6eac21b70": "Nástroje, technologie a platformy, které Ben Gubler používá pro produktivitu, učení jazyků a vývoj.",
+  "1947f94eeedb8b9c": "Kolekce projektů Bena Gublera, od hlavních prací po experimentální sestavy."
 }

@@ -1,11 +1,11 @@
 import { getColorByIndex } from "@/lib/colors";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { T, useGT, getGT } from "gt-next";
-import { getTranslations } from "gt-next/server";
+import { T, useGT} from "gt-next";
+import { getGT } from "gt-next/server";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations();
+  const t = await getGT();
   return {
     title: t("About Ben Gubler"),
     description: t(

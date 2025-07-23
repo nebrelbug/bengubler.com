@@ -2,12 +2,17 @@ import { ProjectCard } from "@/components/project-card";
 import type { Metadata } from "next";
 import { T } from "gt-next";
 import { useGT } from "gt-next";
+import { getGT } from "gt-next/server";
 
-export const metadata: Metadata = {
-  title: "Projects - Ben Gubler",
-  description:
-    "A collection of Ben Gubler's projects, from featured work to experimental builds.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getGT();
+  return {
+    title: t("Projects - Ben Gubler"),
+    description: t(
+      "A collection of Ben Gubler's projects, from featured work to experimental builds."
+    ),
+  };
+}
 
 const getProjectsData = (t: (content: string) => string) => [
   {

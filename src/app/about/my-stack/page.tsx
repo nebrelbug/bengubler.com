@@ -2,6 +2,7 @@ import { getColorByIndex } from "@/lib/colors";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { T, useGT } from "gt-next";
+import { getGT } from "gt-next/server";
 
 type StackItem = {
   name: string;
@@ -14,11 +15,15 @@ type StackSection = {
   items: StackItem[];
 };
 
-export const metadata: Metadata = {
-  title: "My Stack - Ben Gubler",
-  description:
-    "Tools, technologies, and platforms that Ben Gubler uses for productivity, language learning, and development.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getGT();
+  return {
+    title: t("My Stack - Ben Gubler"),
+    description: t(
+      "Tools, technologies, and platforms that Ben Gubler uses for productivity, language learning, and development."
+    ),
+  };
+}
 
 
 export default function MyStackPage() {

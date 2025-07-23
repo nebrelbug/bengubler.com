@@ -6,11 +6,15 @@ import Link from "next/link";
 import { T, Var } from "gt-next";
 import { getGT } from "gt-next/server";
 
-export const metadata: Metadata = {
-  title: "Posts - Ben Gubler",
-  description:
-    "Thoughts on web development, AI, and building things that matter.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getGT();
+  return {
+    title: t("Posts - Ben Gubler"),
+    description: t(
+      "Thoughts on web development, AI, and building things that matter."
+    ),
+  };
+}
 
 interface PostsPageProps {
   searchParams: Promise<{ tag?: string }>;

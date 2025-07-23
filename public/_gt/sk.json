@@ -180,8 +180,8 @@
       "d": {
         "t": "b",
         "b": {
-          "true": "Zavrieť menu",
-          "false": "Otvoriť menu"
+          "false": "Otvoriť menu",
+          "true": "Zavrieť menu"
         }
       }
     }
@@ -246,6 +246,8 @@
   "fdd81c55ee7946f3": "Svetlý",
   "cd8ccd4b937873e1": "Tmavý",
   "5ae7fd1fc9c3f5a9": "Systém",
+  "5d1a87ebd0ba9c9e": "O Ben Gublerovi",
+  "d8b46c0127d88a10": "Dozveďte sa viac o Benovi Gublerovi, jeho štúdiu AI, jazykov a jeho práci ako webový vývojár.",
   "8e6afde0f536eee2": {
     "i": 1,
     "c": "O mne"
@@ -293,6 +295,8 @@
   "6e8a4f1758b76948": "Profesionálne siete a diskusie súvisiace s kariérou",
   "28a45948473da7f8": "GitHub",
   "4088fbaddc00d228": "Pozrite si moje open source projekty a príspevky",
+  "b710e73c5611e3f4": "Kontakt - Ben Gubler",
+  "233fe71d46008091": "Kontaktujte ma pre spoluprácu, otázky, alebo len tak povedať ahoj.",
   "0704279d82328bbd": {
     "i": 1,
     "c": "Kontakt"
@@ -307,6 +311,8 @@
   "0ee81746110ea465": "Tlačiteľné kartičky pre rýchle a efektívne zapamätanie si vzorov skloňovania českých podstatných mien.",
   "2e881bd80673c0fa": "Ruské pádové karty",
   "97c326fd40fc8abd": "Tlačiteľné kartičky s pádmi na rýchle a efektívne zapamätanie si vzorov skloňovania ruských podstatných mien.",
+  "1f1b4086cadac9b6": "Učenie sa jazykov - Ben Gubler",
+  "4373e32d3674bcd0": "Nástroje a zdroje na učenie sa jazykov, vrátane aplikácií na precvičovanie skloňovania a ďalších.",
   "e6d86a912aea1aa4": {
     "i": 1,
     "c": "Učenie sa jazykov"
@@ -317,6 +323,8 @@
   },
   "f054995438d006aa": "Open-source vývojár, študent ML a začínajúci polyglot. Tvorca Eta a Squirrelly.",
   "d9cb196550026295": "Nepodarilo sa vygenerovať obrázok",
+  "95f506e43b9b3265": "Príspevok nenájdený - Ben Gubler",
+  "6c9b9dc3b6bc4b97": "Príspevok, ktorý hľadáte, neexistuje.",
   "40947665b1503ba3": {
     "i": 1,
     "c": "404"
@@ -546,5 +554,11 @@
     "i": 1,
     "c": " (archivované)"
   },
-  "77d68abb75acf8cd": "Príspevok sa nenašiel"
+  "77d68abb75acf8cd": "Príspevok sa nenašiel",
+  "70dd984db771852a": "Projekty - Ben Gubler",
+  "c7a2323b7e48530a": "Môj Stack - Ben Gubler",
+  "2da071f6eac21b70": "Nástroje, technológie a platformy, ktoré Ben Gubler používa na produktivitu, učenie jazykov a vývoj.",
+  "1947f94eeedb8b9c": "Zbierka projektov Bena Gublera, od hlavných prác až po experimentálne zostavy.",
+  "2ce262d5ab363438": "Príspevky - Ben Gubler",
+  "feb481b144af444a": "Myšlienky o webovom vývoji, AI a budovaní vecí, ktoré majú zmysel."
 }
