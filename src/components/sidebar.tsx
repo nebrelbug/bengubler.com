@@ -52,6 +52,8 @@ export function Sidebar() {
                 width={48}
                 height={48}
                 className="object-cover"
+                priority
+                sizes="48px"
               />
             </div>
             <div className="space-y-1 min-w-0 flex-1">
