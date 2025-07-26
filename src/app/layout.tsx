@@ -102,6 +102,8 @@ export default function RootLayout({
                             width={32}
                             height={32}
                             className="object-cover"
+                            priority
+                            sizes="32px"
                           />
                         </div>
                         <span className="text-lg font-semibold">
